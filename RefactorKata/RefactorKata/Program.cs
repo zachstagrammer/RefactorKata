@@ -35,6 +35,6 @@ namespace RefactorKata
     }
     public class Product
     {
-        public string Name { get { return Name; } set { Name = value; } }
+        public string Name { get; set; }
     }
 }
