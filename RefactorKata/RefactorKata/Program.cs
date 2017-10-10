@@ -13,7 +13,7 @@ namespace RefactorKata
 
             foreach (var product in products)
             {
-                Console.WriteLine(product.Name);
+                Console.WriteLine("This product is call: " + product.Name);
             }
 
         }
@@ -40,9 +40,5 @@ namespace RefactorKata
                 return products;
             }
         }
-    }
-    public class Product
-    {
-        public string Name { get; set; }
     }
 }
