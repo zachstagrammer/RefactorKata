@@ -11,13 +11,13 @@ namespace RefactorKata
             //This is intentionally bad : (  Let's Refactor!
             var conn = new SqlConnection("Server=.;Database=myDataBase;User Id=myUsername;Password = myPassword;");
 
-            System.Data.SqlClient.SqlCommand cmd = conn.CreateCommand();
+            var cmd = conn.CreateCommand();
             cmd.CommandText = "select * from Products";
             /*
              * cmd.CommandText = "Select * from Invoices";
              */
-            System.Data.SqlClient.SqlDataReader reader = cmd.ExecuteReader();
-            List<Product> products = new List<Product>();
+            var reader = cmd.ExecuteReader();
+            var products = new List<Product>();
 
             //TODO: Replace with Dapper
             while (reader.Read())
@@ -28,7 +28,7 @@ namespace RefactorKata
             }
             conn.Dispose();
             Console.WriteLine("Products Loaded!");
-            for (int i =0; i< products.Count; i++)
+            for (var i =0; i< products.Count; i++)
             {
                 Console.WriteLine(products[i].name);
             }
