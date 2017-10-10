@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 
 namespace RefactorKata
 {
@@ -8,9 +9,9 @@ namespace RefactorKata
         static void Main(string[] args)
         {
             //This is intentionally bad : (  Let's Refactor!
-            System.Data.SqlClient.SqlConnection Conn = new System.Data.SqlClient.SqlConnection("Server=.;Database=myDataBase;User Id=myUsername;Password = myPassword;");
+            var conn = new SqlConnection("Server=.;Database=myDataBase;User Id=myUsername;Password = myPassword;");
 
-            System.Data.SqlClient.SqlCommand cmd = Conn.CreateCommand();
+            System.Data.SqlClient.SqlCommand cmd = conn.CreateCommand();
             cmd.CommandText = "select * from Products";
             /*
              * cmd.CommandText = "Select * from Invoices";
@@ -25,7 +26,7 @@ namespace RefactorKata
                 prod.name = reader["Name"].ToString();
                 products.Add(prod);
             }
-            Conn.Dispose();
+            conn.Dispose();
             Console.WriteLine("Products Loaded!");
             for (int i =0; i< products.Count; i++)
             {
