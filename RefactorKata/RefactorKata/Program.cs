@@ -24,9 +24,7 @@ namespace RefactorKata
             {
                 var cmd = conn.CreateCommand();
                 cmd.CommandText = "select * from Products";
-                /*
-                 * cmd.CommandText = "Select * from Invoices";
-                 */
+                
                 var reader = cmd.ExecuteReader();
                 var products = new List<Product>();
 
