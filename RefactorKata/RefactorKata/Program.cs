@@ -21,7 +21,7 @@ namespace RefactorKata
             //TODO: Replace with Dapper
             while (reader.Read())
             {
-                var prod = new Product {name = reader["Name"].ToString()};
+                var prod = new Product {Name = reader["Name"].ToString()};
                 products.Add(prod);
             }
             conn.Dispose();
@@ -29,13 +29,12 @@ namespace RefactorKata
 
             foreach (var product in products)
             {
-                Console.WriteLine(products.name);
+                Console.WriteLine(product.Name);
             }
         }
     }
     public class Product
     {
-        public string name;
-        public string Name { get { return name; } set { name = value; } }
+        public string Name { get { return Name; } set { Name = value; } }
     }
 }
